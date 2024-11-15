@@ -1,9 +1,9 @@
 import isAuthenticatedGuard from '@/modules/auth/guards/is-authenticated.guard';
 import isUserLoggedInGuard from '@/modules/landing/guards/is-user-logged-in.guard';
-import { createRouter, createWebHistory } from 'vue-router';
+import { createRouter, createWebHashHistory } from 'vue-router';
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
     // Landing
     {
