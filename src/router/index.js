@@ -1,3 +1,5 @@
+import isAuthenticatedGuard from '@/modules/auth/guards/is-authenticated.guard';
+import isUserLoggedInGuard from '@/modules/landing/guards/is-user-logged-in.guard';
 import { createRouter, createWebHistory } from 'vue-router';
 
 const router = createRouter({
@@ -6,6 +8,7 @@ const router = createRouter({
     // Landing
     {
       path: '/',
+      beforeEnter: [isUserLoggedInGuard],
       component: () => import('@/modules/landing/layouts/LandingLayout.vue'),
       children: [
         {
@@ -19,6 +22,7 @@ const router = createRouter({
     {
       path: '/auth',
       redirect: { name: 'login' },
+      beforeEnter: [isAuthenticatedGuard],
       component: () => import('@/modules/auth/layouts/AuthLayout.vue'),
       children: [
         {

@@ -13,13 +13,7 @@
               <a class="nav-link active" aria-current="page" href="#">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+              <button class="btn btn-warning shadow" @click="logout">Logout</button>
             </li>
           </ul>
         </div>
@@ -32,7 +26,16 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
 
+
+const router = useRouter();
+
+const logout = () => {
+  localStorage.removeItem('userToken');
+  router.replace({ name: 'login' })
+
+}
 </script>
 
 <style scoped></style>
