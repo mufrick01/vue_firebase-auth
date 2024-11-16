@@ -37,6 +37,12 @@ const router = createRouter({
         },
       ],
     },
+    // 404
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: () => import('@/modules/shared/pages/NotFoundPage.vue'),
+    },
   ],
 });
 
